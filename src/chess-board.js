@@ -117,6 +117,14 @@ class ChessBoard extends HTMLElement {
     removeNodeContent(toCell);
     removeNodeContent(fromCell);
 
+    // Animation.
+    var player = document.timeline.play(new Animation(piece, [
+        {opacity: "0.1"}, 
+        {opacity: "1.0"}
+      ],
+      {
+        direction: "alternate", duration: 500, iterations: 2
+      }));
     toCell.appendChild(piece);
     fromCell.appendChild(emptyPiece);
   }
